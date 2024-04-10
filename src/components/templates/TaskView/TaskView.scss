@@ -1,0 +1,25 @@
+.task-view {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .task-details {
+    font-size: 18px;
+
+    div {
+      margin-bottom: 10px;
+    }
+
+    strong {
+      margin-right: 5px;
+    }
+  }
+}

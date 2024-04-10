@@ -98,4 +98,8 @@ export const selectTasks = (state: RootState) => {
     return tasks.filter((task) => task.status === filter);
   }
 };
+
+export const selectTaskById = (state: RootState, taskId: string) =>
+  state.tasks.tasks.find((task) => task.id === taskId);
+
 export default tasksSlice.reducer;

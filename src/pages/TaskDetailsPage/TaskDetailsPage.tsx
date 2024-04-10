@@ -1,16 +1,22 @@
-import { useParams } from "react-router-dom";
 import MainLayout from "../../components/Layouts/MainLayout/MainLayout";
+import TaskView from "../../components/templates/TaskView/TaskView";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { selectTaskById } from "../../store/slices/tasksSlice";
+import { RootState } from "../../store/store";
 
-const TaskDetailsView: React.FC = () => {
+const TaskDetailsPage: React.FC = () => {
   const { taskId } = useParams<{ taskId: string }>();
+
+  const task = useSelector((state: RootState) =>
+    selectTaskById(state, taskId ?? "")
+  );
 
   return (
     <MainLayout>
-      <h2>Task Details</h2>
-      <p>Task ID: {taskId}</p>
-      {/* Task details component goes here */}
+      <TaskView task={task} />
     </MainLayout>
   );
 };
 
-export default TaskDetailsView;
+export default TaskDetailsPage;

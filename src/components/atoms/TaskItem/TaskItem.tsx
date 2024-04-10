@@ -3,6 +3,7 @@ import StatusIndicator from "../StatusIndicator/StatusIndicatr";
 import StatusToggle from "../StatusToggle/StatusToggle";
 import { Task } from "../../../types/types";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
 interface TaskItemProps {
   task: Task;
@@ -17,7 +18,9 @@ const TaskItem: React.FC<TaskItemProps> = ({
 }) => {
   return (
     <div className="task-item">
-      <span>{task.title}</span>
+      <Link to={`/tasks/${task.id}`} className="task-link">
+        <span>{task.title}</span>{" "}
+      </Link>
       <div className="task-actions">
         <StatusToggle
           status={task.status}
