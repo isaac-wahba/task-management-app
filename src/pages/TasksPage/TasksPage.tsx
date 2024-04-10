@@ -1,11 +1,10 @@
-import React from "react";
 import MainLayout from "../../components/Layouts/MainLayout/MainLayout";
 import TaskList from "../../components/molecules/TaskList/TaskList";
 import TaskForm from "../../components/organisms/TaskForm/TaskForm";
 import { Task } from "../../types/types";
 import useTaskFilter from "../../hooks/useTaskFilter";
 import Filter from "../../components/organisms/Filter/Filter";
-import "./TasksPage.scss"; // Import the SCSS file for TasksPage styling
+import "./TasksPage.scss";
 
 const TasksPage: React.FC = () => {
   const { tasks, filter, setFilter } = useTaskFilter();

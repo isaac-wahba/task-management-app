@@ -1,4 +1,3 @@
-import React from "react";
 import "./Filter.scss";
 import { FilterOptions } from "../../../hooks/useTaskFilter";
 

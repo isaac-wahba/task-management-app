@@ -1,4 +1,3 @@
-import React from "react";
 import "./TaskView.scss";
 import { Task } from "../../../types/types";
 import { Link } from "react-router-dom";

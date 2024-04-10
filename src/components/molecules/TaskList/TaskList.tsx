@@ -1,4 +1,3 @@
-import React from "react";
 import "./TaskList.scss";
 import TaskItem from "../../atoms/TaskItem/TaskItem";
 import { Task } from "../../../types/types";
