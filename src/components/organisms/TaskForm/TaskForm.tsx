@@ -1,19 +1,14 @@
 import { useState } from "react";
 import "./TaskForm.scss";
-import { useDispatch } from "react-redux";
-
 import { Task } from "../../../types/types";
 import Button from "../../atoms/Button/Button";
 import Input from "../../atoms/Input/Input";
-import { addTask } from "../../../store/slices/tasksSlice";
 
 interface TaskFormProps {
   onSubmit: (task: Task) => void;
 }
 
 const TaskForm: React.FC<TaskFormProps> = ({ onSubmit }) => {
-  const dispatch = useDispatch();
-
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
   const [error, setError] = useState("");
@@ -32,13 +27,14 @@ const TaskForm: React.FC<TaskFormProps> = ({ onSubmit }) => {
       status: "pending",
     };
 
-    dispatch(addTask(newTask));
-    // onSubmit(newTask); // Uncomment this line to use the prop function
+    onSubmit(newTask);
+    clearForm();
+  };
+  const clearForm = () => {
     setTitle("");
     setDetails("");
     setError("");
   };
-
   return (
     <form onSubmit={handleSubmit}>
       <div className="task-form">

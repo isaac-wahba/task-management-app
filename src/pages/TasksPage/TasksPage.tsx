@@ -1,21 +1,17 @@
 import MainLayout from "../../components/Layouts/MainLayout/MainLayout";
 import TaskList from "../../components/molecules/TaskList/TaskList";
 import TaskForm from "../../components/organisms/TaskForm/TaskForm";
-import { Task } from "../../types/types";
 import useTaskFilter from "../../hooks/useTaskFilter";
 import Filter from "../../components/organisms/Filter/Filter";
 import "./TasksPage.scss";
 
+import { useTaskActions } from "../../hooks/useTaskActions";
+
 const TasksPage: React.FC = () => {
   const { tasks, filter, setFilter } = useTaskFilter();
 
-  const handleAddTask = (task: Task) => {
-    console.log("Adding task:", task);
-  };
-
-  const handleToggleStatus = (id: string) => {
-    console.log("Toggling status for task:", id);
-  };
+  const { handleAddTask, handleDeleteTask, handleToggleStatus } =
+    useTaskActions();
 
   return (
     <MainLayout>
@@ -25,7 +21,11 @@ const TasksPage: React.FC = () => {
           <Filter selectedFilter={filter} onSelectFilter={setFilter} />
         </div>
         <TaskForm onSubmit={handleAddTask} />
-        <TaskList tasks={tasks} onToggleStatus={handleToggleStatus} />
+        <TaskList
+          tasks={tasks}
+          onToggleStatus={handleToggleStatus}
+          onDeleteTask={handleDeleteTask}
+        />
       </div>
     </MainLayout>
   );
