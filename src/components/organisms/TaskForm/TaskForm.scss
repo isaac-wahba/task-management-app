@@ -1,0 +1,13 @@
+.task-form {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-grow: inherit;
+}
+
+.error-message {
+  color: red;
+  // margin-top: 2px;
+  // update this
+}

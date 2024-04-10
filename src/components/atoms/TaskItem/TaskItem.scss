@@ -1,0 +1,22 @@
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  span {
+    flex: 1;
+    margin-right: 10px;
+  }
+
+  .task-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
