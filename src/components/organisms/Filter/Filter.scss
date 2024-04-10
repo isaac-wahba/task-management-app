@@ -1,35 +1,56 @@
-/* Filter.scss */
-.filter {
+.filter-container {
   margin-bottom: 20px;
+  width: 30%;
+  max-width: 30%;
 
-  select {
-    width: 200px; /* Set a fixed width */
+  .react-select__control {
+    width: 100%;
+    max-width: 100%;
     padding: 8px 12px;
     font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    appearance: none;
-    background-image: url('data:image/svg+xml;utf8,<svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="%23000" d="M7 10l5 5 5-5z"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 8px center;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      border-color: #007bff;
+    }
   }
 
-  option {
-    padding-left: 24px;
-    background-color: #fff;
+  .react-select__menu {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: none;
+    font-size: 16px;
   }
 
-  .selected {
-    fill: #007bff;
-  }
-  .icon {
-    margin-right: 8px; /* Add some space between icon and text */
-  }
-  .green {
-    color: green;
+  .react-select__option {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 5px;
+    cursor: pointer;
+
+    &:before {
+      content: "";
+      display: block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
   }
 
-  .orange {
-    color: orange;
+  .option-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    .color-circle {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
   }
 }

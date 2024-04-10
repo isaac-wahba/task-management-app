@@ -1,5 +1,7 @@
+import Select from "react-select";
 import "./Filter.scss";
 import { FilterOptions } from "../../../hooks/useTaskFilter";
+import { filterOptions } from "../../../constants/constants";
 
 interface FilterProps {
   selectedFilter: FilterOptions;
@@ -7,17 +9,15 @@ interface FilterProps {
 }
 
 const Filter: React.FC<FilterProps> = ({ selectedFilter, onSelectFilter }) => {
-  const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    onSelectFilter(e.target.value as FilterOptions);
-  };
-
   return (
-    <div className="filter">
-      <select value={selectedFilter} onChange={handleFilterChange}>
-        <option value="all">All</option>
-        <option value="completed">Completed</option>
-        <option value="pending">Pending</option>
-      </select>
+    <div className="filter-container">
+      <Select
+        value={filterOptions.find((option) => option.value === selectedFilter)}
+        onChange={(option: any) => onSelectFilter(option.value)}
+        options={filterOptions}
+        className="react-select-container"
+        classNamePrefix="react-select"
+      />
     </div>
   );
 };
