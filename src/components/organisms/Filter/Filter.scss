@@ -1,0 +1,35 @@
+/* Filter.scss */
+.filter {
+  margin-bottom: 20px;
+
+  select {
+    width: 200px; /* Set a fixed width */
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="%23000" d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+  }
+
+  option {
+    padding-left: 24px;
+    background-color: #fff;
+  }
+
+  .selected {
+    fill: #007bff;
+  }
+  .icon {
+    margin-right: 8px; /* Add some space between icon and text */
+  }
+  .green {
+    color: green;
+  }
+
+  .orange {
+    color: orange;
+  }
+}

@@ -1,13 +1,18 @@
 .task-form {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  flex-grow: inherit;
+  justify-content: end;
+  align-items: stretch;
+  > *:not(:last-child) {
+    flex: 2;
+  }
+
+  > *:last-child {
+    flex: 1;
+  }
 }
 
 .error-message {
   color: red;
-  // margin-top: 2px;
-  // update this
 }

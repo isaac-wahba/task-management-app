@@ -4,6 +4,7 @@ import { Task } from "../../types/types";
 
 interface TasksState {
   tasks: Task[];
+  filter: "all" | "completed" | "pending";
 }
 
 const initialState: TasksState = {
@@ -22,6 +23,7 @@ const initialState: TasksState = {
       details: "Task 3 details",
     },
   ],
+  filter: "all",
 };
 
 const tasksSlice = createSlice({
@@ -40,11 +42,24 @@ const tasksSlice = createSlice({
     deleteTask: (state, action: PayloadAction<string>) => {
       state.tasks = state.tasks.filter((task) => task.id !== action.payload);
     },
+    setFilter: (
+      state,
+      action: PayloadAction<"all" | "completed" | "pending">
+    ) => {
+      state.filter = action.payload;
+    },
   },
 });
 
-export const { addTask, toggleTaskStatus, deleteTask } = tasksSlice.actions;
+export const { addTask, toggleTaskStatus, deleteTask, setFilter } =
+  tasksSlice.actions;
 
-export const selectTasks = (state: RootState) => state.tasks.tasks;
-
+export const selectTasks = (state: RootState) => {
+  const { tasks, filter } = state.tasks;
+  if (filter === "all") {
+    return tasks;
+  } else {
+    return tasks.filter((task) => task.status === filter);
+  }
+};
 export default tasksSlice.reducer;
