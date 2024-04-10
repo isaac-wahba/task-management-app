@@ -24,7 +24,13 @@ const TaskItem: React.FC<TaskItemProps> = ({
           onToggle={() => onToggleStatus(task.id)}
         />
         <StatusIndicator status={task.status} />
-        <Button onClick={() => onDeleteTask(task.id)}>Delete</Button>
+        <Button
+          onClick={() => onDeleteTask(task.id)}
+          primaryColor="#C0392B"
+          hoverColor="#96281B"
+        >
+          Delete
+        </Button>
       </div>
     </div>
   );
