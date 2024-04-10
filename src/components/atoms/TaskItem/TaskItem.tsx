@@ -4,6 +4,8 @@ import StatusToggle from "../StatusToggle/StatusToggle";
 import { Task } from "../../../types/types";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
+import { useConfirmationModal } from "../../../hooks/useConfirmationModal";
+import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 
 interface TaskItemProps {
   task: Task;
@@ -16,6 +18,12 @@ const TaskItem: React.FC<TaskItemProps> = ({
   onToggleStatus,
   onDeleteTask,
 }) => {
+  const { isOpen, openModal, closeModal, handleConfirm } =
+    useConfirmationModal();
+
+  const handleDeleteClick = () => {
+    openModal(() => onDeleteTask(task.id));
+  };
   return (
     <div className="task-item">
       <Link to={`/tasks/${task.id}`} className="task-link">
@@ -28,13 +36,21 @@ const TaskItem: React.FC<TaskItemProps> = ({
         />
         <StatusIndicator status={task.status} />
         <Button
-          onClick={() => onDeleteTask(task.id)}
+          onClick={handleDeleteClick}
           primaryColor="#C0392B"
           hoverColor="#96281B"
         >
           Delete
         </Button>
       </div>
+      {isOpen && (
+        <ConfirmationModal
+          isOpen={isOpen}
+          onConfirm={handleConfirm}
+          onCancel={closeModal}
+          message="Are you sure you want to delete this task?"
+        />
+      )}
     </div>
   );
 };
