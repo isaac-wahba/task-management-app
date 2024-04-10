@@ -3,6 +3,7 @@ import "./TaskForm.scss";
 import { Task } from "../../../types/types";
 import Button from "../../atoms/Button/Button";
 import Input from "../../atoms/Input/Input";
+import { TASK_STATUS } from "../../../enums/common";
 
 interface TaskFormProps {
   onSubmit: (task: Task) => void;
@@ -24,7 +25,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onSubmit }) => {
       id: Math.random().toString(36).substr(2, 9),
       title,
       details,
-      status: "pending",
+      status: TASK_STATUS.PENDING,
     };
 
     onSubmit(newTask);

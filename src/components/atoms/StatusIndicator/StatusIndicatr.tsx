@@ -1,7 +1,8 @@
+import { TASK_STATUS } from "../../../enums/common";
 import "./StatusIndicator.scss";
 
 interface StatusIndicatorProps {
-  status: "completed" | "pending";
+  status: TASK_STATUS.COMPLETED | TASK_STATUS.PENDING;
 }
 
 const StatusIndicator: React.FC<StatusIndicatorProps> = ({ status }) => {

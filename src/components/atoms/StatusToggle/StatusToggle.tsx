@@ -1,14 +1,17 @@
+import { TASK_STATUS } from "../../../enums/common";
 import "./StatusToggle.scss";
 
 interface StatusToggleProps {
-  status: "completed" | "pending";
+  status: TASK_STATUS.COMPLETED | TASK_STATUS.PENDING;
   onToggle: () => void;
 }
 
 const StatusToggle: React.FC<StatusToggleProps> = ({ status, onToggle }) => {
   return (
     <div className="status-toggle" onClick={onToggle}>
-      {status === "completed" ? "Mark as Pending" : "Mark as Completed"}
+      {status === TASK_STATUS.COMPLETED
+        ? "Mark as Pending"
+        : "Mark as Completed"}
     </div>
   );
 };
