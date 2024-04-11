@@ -14,3 +14,12 @@ $light-gray: #ddd;
 $mid-gray: darken($light-gray, 10%);
 $app-background-color: #f8f9fa;
 $white: #fff;
+
+@mixin ellipsis-lines($lines) {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $lines;
+  line-clamp: $lines;
+  -webkit-box-orient: vertical;
+}
