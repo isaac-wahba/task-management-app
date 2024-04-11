@@ -9,25 +9,31 @@ interface TaskDetailsPageProps {
 
 const TaskView: React.FC<TaskDetailsPageProps> = ({ task }) => {
   return (
-    <div className="task-view">
-      <h2>Task Details</h2>
-      {task ? (
-        <div className="task-details">
-          <div>
-            <strong>Title:</strong> {task.title}
+    <>
+      <div className="task-view">
+        <h2>Task Details</h2>
+        {task ? (
+          <div className="task-details">
+            <div>
+              <strong>Title:</strong> {task.title}
+            </div>
+            <div>
+              <strong>Description:</strong> {task.details}
+            </div>
+            <div>
+              <strong>Status:</strong> {task.status}
+            </div>
           </div>
-          <div>
-            <strong>Description:</strong> {task.details}
-          </div>
-          <div>
-            <strong>Status:</strong> {task.status}
-          </div>
+        ) : (
+          <NoDataView message="Task not found" />
+        )}
+      </div>
+      <div className="back-to-list">
+        <div className="back-action">
+          <Link to="/">Back to tasks</Link>
         </div>
-      ) : (
-        <NoDataView message="Task not found" />
-      )}
-      <Link to="/">Back to tasks</Link>
-    </div>
+      </div>
+    </>
   );
 };
 

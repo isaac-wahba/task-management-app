@@ -6,7 +6,6 @@
   border: 1px solid $mid-gray;
   border-radius: 8px;
   background-color: $white;
-
   h2 {
     font-size: 24px;
     margin-bottom: 20px;
@@ -21,6 +20,22 @@
 
     strong {
       margin-right: 5px;
+    }
+  }
+}
+.back-to-list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 20px;
+  padding: 5%;
+  .back-action {
+    font-size: 16px;
+    color: $color-primary;
+    cursor: pointer;
+    transition: color 0.3s;
+    &:hover {
+      color: $color-primary-darker;
     }
   }
 }
