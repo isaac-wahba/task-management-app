@@ -8,7 +8,12 @@ interface StatusToggleProps {
 
 const StatusToggle: React.FC<StatusToggleProps> = ({ status, onToggle }) => {
   return (
-    <div className="status-toggle" onClick={onToggle}>
+    <div
+      className={`status-toggle ${
+        status === TASK_STATUS.COMPLETED ? "complete" : "pending"
+      }`}
+      onClick={onToggle}
+    >
       {status === TASK_STATUS.COMPLETED
         ? "Mark as Pending"
         : "Mark as Completed"}

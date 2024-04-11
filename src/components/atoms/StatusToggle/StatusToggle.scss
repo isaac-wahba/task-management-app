@@ -1,7 +1,19 @@
 @import "../../../assets/styles/variables.scss";
 .status-toggle {
   cursor: pointer;
-  color: $color-primary;
+  background-color: transparent;
+}
+.complete {
+  color: $color-success;
+  &:hover {
+    color: darken($color-success, 10%);
+  }
+}
+.pending {
+  color: $color-warning;
+  &:hover {
+    color: darken($color-warning, 10%);
+  }
 }
 
 .status-toggle:hover {
