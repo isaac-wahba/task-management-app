@@ -26,23 +26,31 @@ const TaskItem: React.FC<TaskItemProps> = ({
     openModal(() => onDeleteTask(task.id));
   };
   return (
-    <div className="task-item">
-      <Link to={`/tasks/${task.id}`} className="task-link">
-        <span title={`View "${task.title}" details..`}>{task.title}</span>{" "}
-      </Link>
-      <div className="task-actions">
-        <StatusToggle
-          status={task.status}
-          onToggle={() => onToggleStatus(task.id)}
-        />
-        <StatusIndicator status={task.status} />
-        <Button
-          onClick={handleDeleteClick}
-          primaryColor={COLORS.DANGER}
-          hoverColor={COLORS.DANGER_DARKER}
-        >
-          Delete
-        </Button>
+    <>
+      <div className="task-item">
+        <div className="title-status-container">
+          <span className="indicator">
+            <StatusIndicator status={task.status} />
+          </span>
+          <Link to={`/tasks/${task.id}`}>
+            <span title={`View "${task.title}" details..`} className="title">
+              {task.title}
+            </span>
+          </Link>
+        </div>
+        <div className="task-actions">
+          <StatusToggle
+            status={task.status}
+            onToggle={() => onToggleStatus(task.id)}
+          />
+          <Button
+            onClick={handleDeleteClick}
+            primaryColor={COLORS.DANGER}
+            hoverColor={COLORS.DANGER_DARKER}
+          >
+            Delete
+          </Button>
+        </div>
       </div>
       {isOpen && (
         <ConfirmationModal
@@ -52,7 +60,7 @@ const TaskItem: React.FC<TaskItemProps> = ({
           message="Are you sure you want to delete this task?"
         />
       )}
-    </div>
+    </>
   );
 };
 
