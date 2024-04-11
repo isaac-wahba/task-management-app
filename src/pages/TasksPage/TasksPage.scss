@@ -1,3 +1,4 @@
+@import "../../assets/styles/styles.scss";
 .tasks-page {
   padding: 20px;
 
@@ -9,6 +10,7 @@
 
     h2 {
       margin: 0;
+      color: $color-primary;
     }
 
     @media (max-width: 992px) {

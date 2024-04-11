@@ -2,6 +2,8 @@ import "./TaskView.scss";
 import { Task } from "../../../types/common";
 import { Link } from "react-router-dom";
 import NoDataView from "../NoDataView/NoDataView";
+import StatusIndicator from "../../atoms/StatusIndicator/StatusIndicator";
+import { capitalizeFirstLetter } from "../../../utils/stringUtils";
 
 interface TaskDetailsPageProps {
   task: Task | undefined;
@@ -17,11 +19,14 @@ const TaskView: React.FC<TaskDetailsPageProps> = ({ task }) => {
             <div>
               <strong>Title:</strong> {task.title}
             </div>
+            <div className="status-container">
+              <strong>Status:</strong>
+              <StatusIndicator status={task.status} />
+              {capitalizeFirstLetter(task.status)}
+            </div>
+
             <div>
               <strong>Description:</strong> {task.details}
-            </div>
-            <div>
-              <strong>Status:</strong> {task.status}
             </div>
           </div>
         ) : (
