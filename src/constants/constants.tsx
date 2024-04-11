@@ -1,8 +1,8 @@
 import { COLORS } from "../assets/styles/colors";
 import { TASK_STATUS, TASK_STATUS_LABEL } from "../enums/common";
-import { Task } from "../types/common";
+import { Option, Task } from "../types/common";
 
-export const filterOptions = [
+export const filterOptions: Option[] = [
   {
     value: TASK_STATUS.ALL,
     label: (

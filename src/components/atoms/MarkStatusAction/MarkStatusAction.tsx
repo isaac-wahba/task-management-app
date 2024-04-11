@@ -17,7 +17,11 @@ const MarkStatusAction: React.FC<MarkStatusActionProps> = ({
         <img
           onClick={onToggle}
           src={status === TASK_STATUS.COMPLETED ? PendingIcon : CompleteIcon}
-          alt="mark as complete"
+          alt={
+            status === TASK_STATUS.COMPLETED
+              ? "mark as pending"
+              : "mark as completed"
+          }
           width={18}
           height={18}
           style={{ cursor: "pointer" }}

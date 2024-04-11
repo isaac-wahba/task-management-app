@@ -1,11 +1,13 @@
 import "./Filter.scss";
-import { filterOptions } from "../../../constants/constants";
 import DropDown from "../../atoms/DropDown/DropDown";
 import { ReactNode } from "react";
 import { TASK_STATUS } from "../../../enums/common";
+import { Option } from "../../../types/common";
+import { filterOptions } from "../../../constants/constants";
 
 interface FilterProps {
   selectedFilter: TASK_STATUS;
+  filterOptions: Option[];
   onSelectFilter: (filter: TASK_STATUS) => void;
 }
 
