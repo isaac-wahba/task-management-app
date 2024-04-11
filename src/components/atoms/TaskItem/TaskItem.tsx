@@ -1,11 +1,12 @@
 import "./TaskItem.scss";
 import StatusIndicator from "../StatusIndicator/StatusIndicator";
 import { Task } from "../../../types/common";
-import { Link } from "react-router-dom";
 import { useConfirmationModal } from "../../../hooks/useConfirmationModal";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 import MarkStatusAction from "../MarkStatusAction/MarkStatusAction";
 import DeleteTaskAction from "../DeleteTaskAction/DeleteTaskAction";
+import ViewTaskDetailsAction from "../ViewTaskDetailsAction/ViewTaskDetailsAction";
+import { capitalizeFirstLetter } from "../../../utils/stringUtils";
 
 interface TaskItemProps {
   task: Task;
@@ -31,13 +32,15 @@ const TaskItem: React.FC<TaskItemProps> = ({
           <span className="indicator">
             <StatusIndicator status={task.status} />
           </span>
-          <Link to={`/tasks/${task.id}`}>
-            <span title={`View "${task.title}" details..`} className="title">
-              {task.title}
-            </span>
-          </Link>
+          <span
+            title={`${task.title} - ${capitalizeFirstLetter(task.status)}`}
+            className="title"
+          >
+            {task.title}
+          </span>
         </div>
         <div className="task-actions">
+          <ViewTaskDetailsAction link={`/tasks/${task.id}`} />
           <MarkStatusAction
             status={task.status}
             onToggle={() => onToggleStatus(task.id)}
