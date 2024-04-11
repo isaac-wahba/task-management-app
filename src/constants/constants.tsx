@@ -1,5 +1,6 @@
+import { COLORS } from "../assets/styles/colors";
 import { TASK_STATUS, TASK_STATUS_LABEL } from "../enums/common";
-import { Task } from "../types/types";
+import { Task } from "../types/common";
 
 export const filterOptions = [
   {
@@ -8,7 +9,7 @@ export const filterOptions = [
       <div className="option-content">
         <div
           className="color-circle"
-          style={{ backgroundColor: "black", marginRight: "5px" }}
+          style={{ backgroundColor: COLORS.SECONDARY, marginRight: "5px" }}
         ></div>
         <span>{TASK_STATUS_LABEL.ALL}</span>
       </div>
@@ -20,7 +21,7 @@ export const filterOptions = [
       <div className="option-content">
         <div
           className="color-circle"
-          style={{ backgroundColor: "orange", marginRight: "5px" }}
+          style={{ backgroundColor: COLORS.WARNING, marginRight: "5px" }}
         ></div>
         <span>{TASK_STATUS_LABEL.PENDING}</span>
       </div>
@@ -32,7 +33,7 @@ export const filterOptions = [
       <div className="option-content">
         <div
           className="color-circle"
-          style={{ backgroundColor: "green", marginRight: "5px" }}
+          style={{ backgroundColor: COLORS.SUCCESS, marginRight: "5px" }}
         ></div>
         <span>{TASK_STATUS_LABEL.COMPLETED}</span>
       </div>

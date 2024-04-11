@@ -1,5 +1,5 @@
 import "./TaskView.scss";
-import { Task } from "../../../types/types";
+import { Task } from "../../../types/common";
 import { Link } from "react-router-dom";
 
 interface TaskDetailsPageProps {

@@ -1,6 +1,6 @@
 import "./TaskList.scss";
 import TaskItem from "../../atoms/TaskItem/TaskItem";
-import { Task } from "../../../types/types";
+import { Task } from "../../../types/common";
 
 interface TaskListProps {
   tasks: Task[];

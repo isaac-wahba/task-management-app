@@ -1,6 +1,7 @@
+@import "../../../assets/styles/variables.scss";
 .status-toggle {
   cursor: pointer;
-  color: blue;
+  color: $color-primary;
 }
 
 .status-toggle:hover {

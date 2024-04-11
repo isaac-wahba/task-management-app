@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./TaskForm.scss";
-import { Task } from "../../../types/types";
+import { Task } from "../../../types/common";
 import Button from "../../atoms/Button/Button";
 import Input from "../../atoms/Input/Input";
 import { TASK_STATUS } from "../../../enums/common";

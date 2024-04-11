@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectTasks, setFilter } from "../store/slices/tasksSlice";
-import { Task } from "../types/types";
+import { Task } from "../types/common";
 import { TASK_STATUS } from "../enums/common";
 
 export type FilterOptions =

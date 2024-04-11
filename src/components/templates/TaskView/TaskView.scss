@@ -1,10 +1,11 @@
+@import "../../../assets/styles/variables.scss";
 .task-view {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid $mid-gray;
   border-radius: 8px;
-  background-color: #fff;
+  background-color: $white;
 
   h2 {
     font-size: 24px;

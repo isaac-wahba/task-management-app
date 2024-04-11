@@ -1,3 +1,4 @@
+@import "../../../assets/styles/variables.scss";
 .input {
   padding: 8px;
   border: 1px solid #ddd;
@@ -8,9 +9,9 @@
 
 .input:focus {
   outline: none;
-  border-color: #007bff;
+  border-color: $color-primary;
 }
 
 .input-error {
-  border-color: red;
+  border-color: $color-danger;
 }

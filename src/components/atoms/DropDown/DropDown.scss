@@ -1,20 +1,21 @@
+@import "../../../assets/styles/variables.scss";
 .react-select__control {
   width: 100%;
   max-width: 100%;
   padding: 5px 5px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid $color-light;
   border-radius: 5px;
   cursor: pointer;
 
   &:hover,
   &:focus {
-    border-color: #007bff;
+    border-color: $color-primary;
   }
 }
 
 .react-select__menu {
-  border: 1px solid #ccc;
+  border: 1px solid $color-light;
   border-radius: 5px;
   box-shadow: none;
   font-size: 16px;
@@ -26,15 +27,6 @@
   position: relative;
   padding-left: 5px;
   cursor: pointer;
-
-  &:before {
-    content: "";
-    display: block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
 }
 
 .option-content {

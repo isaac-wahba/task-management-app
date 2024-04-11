@@ -1,17 +1,19 @@
+@import "../../../assets/styles/variables.scss";
+
 .button {
   padding: 8px 16px;
   font-size: 16px;
   border: 1px solid transparent;
   border-radius: 4px;
-  color: white;
+  color: $color-light;
   cursor: pointer;
   transition: background-color 0.3s ease;
 
-  background-color: var(--primary-color, #007bff);
-  border-color: var(--primary-color, #007bff);
+  background-color: var(--primary-color, $color-primary);
+  border-color: var(--primary-color, $color-primary);
 
   &:hover {
-    background-color: var(--hover-color, #0056b3);
+    background-color: var(--hover-color, $color-primary-darker);
   }
 
   &:focus {

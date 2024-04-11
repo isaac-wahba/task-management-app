@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
-import { Task } from "../../types/types";
+import { Task } from "../../types/common";
 import { TASK_STATUS } from "../../enums/common";
 import { initialTasksList } from "../../constants/constants";
 

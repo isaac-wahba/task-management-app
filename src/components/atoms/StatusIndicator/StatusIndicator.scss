@@ -1,3 +1,5 @@
+@import "../../../assets/styles/variables.scss";
+
 .status-indicator {
   width: 20px;
   height: 20px;
@@ -6,9 +8,9 @@
 }
 
 .completed {
-  background-color: green;
+  background-color: $color-success;
 }
 
 .pending {
-  background-color: orange;
+  background-color: $color-warning;
 }

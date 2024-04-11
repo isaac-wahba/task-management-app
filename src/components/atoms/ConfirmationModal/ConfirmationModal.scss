@@ -1,17 +1,19 @@
+@import "../../../assets/styles/variables.scss";
+
 .confirmation-modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(204, 215, 227, 0.859);
+  background-color: $modal-background-color;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .modal-content {
-  background-color: white;
+  background-color: $color-light;
   padding: 20px;
   border-radius: 5px;
 }
@@ -31,10 +33,16 @@
 }
 
 .buttons button:first-child {
-  background-color: #c0392b;
-  color: white;
+  background-color: $color-danger;
+  color: $color-light;
+  &:hover {
+    background-color: $color-danger-darker;
+  }
 }
 
 .buttons button:last-child {
-  background-color: #ddd;
+  background-color: $light-gray;
+  &:hover {
+    background-color: $mid-gray;
+  }
 }

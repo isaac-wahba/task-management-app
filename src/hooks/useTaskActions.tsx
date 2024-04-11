@@ -4,7 +4,7 @@ import {
   deleteTask,
   toggleTaskStatus,
 } from "../store/slices/tasksSlice";
-import { Task } from "../types/types";
+import { Task } from "../types/common";
 
 export const useTaskActions = () => {
   const dispatch = useDispatch();
