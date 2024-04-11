@@ -1,12 +1,11 @@
 import "./TaskItem.scss";
 import StatusIndicator from "../StatusIndicator/StatusIndicator";
-import StatusToggle from "../StatusToggle/StatusToggle";
 import { Task } from "../../../types/common";
-import Button from "../Button/Button";
 import { Link } from "react-router-dom";
 import { useConfirmationModal } from "../../../hooks/useConfirmationModal";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
-import { COLORS } from "./../../../assets/styles/colors";
+import MarkStatusAction from "../MarkStatusAction/MarkStatusAction";
+import DeleteTaskAction from "../DeleteTaskAction/DeleteTaskAction";
 
 interface TaskItemProps {
   task: Task;
@@ -39,17 +38,11 @@ const TaskItem: React.FC<TaskItemProps> = ({
           </Link>
         </div>
         <div className="task-actions">
-          <StatusToggle
+          <MarkStatusAction
             status={task.status}
             onToggle={() => onToggleStatus(task.id)}
           />
-          <Button
-            onClick={handleDeleteClick}
-            primaryColor={COLORS.DANGER}
-            hoverColor={COLORS.DANGER_DARKER}
-          >
-            Delete
-          </Button>
+          <DeleteTaskAction onClick={handleDeleteClick} />
         </div>
       </div>
       {isOpen && (
