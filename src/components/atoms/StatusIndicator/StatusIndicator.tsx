@@ -1,4 +1,5 @@
 import { TASK_STATUS } from "../../../enums/common";
+import { capitalizeFirstLetter } from "../../../utils/stringUtils";
 import "./StatusIndicator.scss";
 
 interface StatusIndicatorProps {
@@ -6,7 +7,12 @@ interface StatusIndicatorProps {
 }
 
 const StatusIndicator: React.FC<StatusIndicatorProps> = ({ status }) => {
-  return <div className={`status-indicator ${status}`}></div>;
+  return (
+    <div
+      title={capitalizeFirstLetter(status)}
+      className={`status-indicator ${status}`}
+    ></div>
+  );
 };
 
 export default StatusIndicator;
