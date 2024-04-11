@@ -28,7 +28,7 @@ const TaskItem: React.FC<TaskItemProps> = ({
   return (
     <div className="task-item">
       <Link to={`/tasks/${task.id}`} className="task-link">
-        <span>{task.title}</span>{" "}
+        <span title={`View "${task.title}" details..`}>{task.title}</span>{" "}
       </Link>
       <div className="task-actions">
         <StatusToggle
