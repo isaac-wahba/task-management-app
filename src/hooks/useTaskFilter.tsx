@@ -4,15 +4,10 @@ import { selectTasks, setFilter } from "../store/slices/tasksSlice";
 import { Task } from "../types/common";
 import { TASK_STATUS } from "../enums/common";
 
-export type FilterOptions =
-  | TASK_STATUS.ALL
-  | TASK_STATUS.COMPLETED
-  | TASK_STATUS.PENDING;
-
 const useTaskFilter = () => {
   const dispatch = useDispatch();
   const tasks = useSelector(selectTasks);
-  const [filter, setFilterState] = useState<FilterOptions>(TASK_STATUS.ALL);
+  const [filter, setFilterState] = useState<TASK_STATUS>(TASK_STATUS.ALL);
 
   const filterTasks = () => {
     return tasks.filter((task: Task) => {
@@ -21,7 +16,7 @@ const useTaskFilter = () => {
     });
   };
 
-  const handleSetFilter = (selectedFilter: FilterOptions) => {
+  const handleSetFilter = (selectedFilter: TASK_STATUS) => {
     setFilterState(selectedFilter);
     dispatch(setFilter(selectedFilter));
   };

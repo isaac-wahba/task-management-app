@@ -6,6 +6,9 @@ import Filter from "../../components/organisms/Filter/Filter";
 import "./TasksPage.scss";
 
 import { useTaskActions } from "../../hooks/useTaskActions";
+import { TASK_STATUS } from "../../enums/common";
+import { capitalizeFirstLetter } from "../../utils/stringUtils";
+import NoDataView from "../../components/templates/NoDataView/NoDataView";
 
 const TasksPage: React.FC = () => {
   const { tasks, filter, setFilter } = useTaskFilter();
@@ -21,11 +24,19 @@ const TasksPage: React.FC = () => {
           <Filter selectedFilter={filter} onSelectFilter={setFilter} />
         </div>
         <TaskForm onSubmit={handleAddTask} />
-        <TaskList
-          tasks={tasks}
-          onToggleStatus={handleToggleStatus}
-          onDeleteTask={handleDeleteTask}
-        />
+        {tasks && tasks.length > 0 ? (
+          <TaskList
+            tasks={tasks}
+            onToggleStatus={handleToggleStatus}
+            onDeleteTask={handleDeleteTask}
+          />
+        ) : (
+          <NoDataView
+            message={`No ${
+              filter !== TASK_STATUS.ALL ? capitalizeFirstLetter(filter) : ""
+            } tasks to display`}
+          />
+        )}
       </div>
     </MainLayout>
   );

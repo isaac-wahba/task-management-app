@@ -1,25 +1,17 @@
 import "./Filter.scss";
-import { FilterOptions } from "../../../hooks/useTaskFilter";
 import { filterOptions } from "../../../constants/constants";
 import DropDown from "../../atoms/DropDown/DropDown";
 import { ReactNode } from "react";
+import { TASK_STATUS } from "../../../enums/common";
 
 interface FilterProps {
-  selectedFilter: FilterOptions;
-  onSelectFilter: (filter: FilterOptions) => void;
+  selectedFilter: TASK_STATUS;
+  onSelectFilter: (filter: TASK_STATUS) => void;
 }
 
 const Filter: React.FC<FilterProps> = ({ selectedFilter, onSelectFilter }) => {
   return (
     <div className="filter-container">
-      {/* <Select
-        value={filterOptions.find((option) => option.value === selectedFilter)}
-        onChange={(option: any) => onSelectFilter(option.value)}
-        options={filterOptions}
-        className="react-select-container"
-        classNamePrefix="react-select"
-      /> */}
-
       <DropDown
         onSelect={(option: any) => onSelectFilter(option.value)}
         options={filterOptions}

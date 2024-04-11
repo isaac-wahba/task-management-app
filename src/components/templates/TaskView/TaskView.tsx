@@ -1,6 +1,7 @@
 import "./TaskView.scss";
 import { Task } from "../../../types/common";
 import { Link } from "react-router-dom";
+import NoDataView from "../NoDataView/NoDataView";
 
 interface TaskDetailsPageProps {
   task: Task | undefined;
@@ -23,7 +24,7 @@ const TaskView: React.FC<TaskDetailsPageProps> = ({ task }) => {
           </div>
         </div>
       ) : (
-        <p>Task not found</p>
+        <NoDataView message="Task not found" />
       )}
       <Link to="/">Back to tasks</Link>
     </div>
