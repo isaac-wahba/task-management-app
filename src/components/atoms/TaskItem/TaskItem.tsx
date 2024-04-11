@@ -1,5 +1,5 @@
 import "./TaskItem.scss";
-import StatusIndicator from "../StatusIndicator/StatusIndicatr";
+import StatusIndicator from "../StatusIndicator/StatusIndicator";
 import StatusToggle from "../StatusToggle/StatusToggle";
 import { Task } from "../../../types/common";
 import Button from "../Button/Button";
