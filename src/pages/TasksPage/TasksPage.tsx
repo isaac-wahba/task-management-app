@@ -12,7 +12,7 @@ import NoDataView from "../../components/templates/NoDataView/NoDataView";
 import { filterOptions } from "../../constants/constants";
 
 const TasksPage: React.FC = () => {
-  const { tasks, filter, setFilter } = useTaskFilter();
+  const { tasks, filter, setFilter, loading } = useTaskFilter();
 
   const { handleAddTask, handleDeleteTask, handleToggleStatus } =
     useTaskActions();
@@ -37,9 +37,15 @@ const TasksPage: React.FC = () => {
           />
         ) : (
           <NoDataView
-            message={`No ${
-              filter !== TASK_STATUS.ALL ? capitalizeFirstLetter(filter) : ""
-            } tasks to display`}
+            message={
+              loading
+                ? "Loading..."
+                : `No ${
+                    filter !== TASK_STATUS.ALL
+                      ? capitalizeFirstLetter(filter)
+                      : ""
+                  } tasks to display`
+            }
           />
         )}
       </div>

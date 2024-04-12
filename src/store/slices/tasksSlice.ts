@@ -2,16 +2,18 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import { Task } from "../../types/common";
 import { TASK_STATUS } from "../../enums/common";
-import { initialTasksList } from "../../constants/constants";
+import { fetchInitialTasks } from "../../services/api";
 
 interface TasksState {
   tasks: Task[];
   filter: TASK_STATUS.ALL | TASK_STATUS.COMPLETED | TASK_STATUS.PENDING;
+  loading: boolean;
 }
 
 const initialState: TasksState = {
-  tasks: initialTasksList,
+  tasks: [],
   filter: TASK_STATUS.ALL,
+  loading: false,
 };
 
 const tasksSlice = createSlice({
@@ -42,6 +44,15 @@ const tasksSlice = createSlice({
       state.filter = action.payload;
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase(fetchInitialTasks.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchInitialTasks.fulfilled, (state, action) => {
+      state.loading = false;
+      state.tasks = action.payload;
+    });
+  },
 });
 
 export const { addTask, toggleTaskStatus, deleteTask, setFilter } =
@@ -56,6 +67,7 @@ export const selectTasks = (state: RootState) => {
   }
 };
 
+export const selectLoading = (state: RootState) => state.tasks.loading;
 export const selectTaskById = (state: RootState, taskId: string) =>
   state.tasks.tasks.find((task) => task.id === taskId);
 
