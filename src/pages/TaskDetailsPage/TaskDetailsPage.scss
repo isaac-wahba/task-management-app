@@ -1,0 +1,19 @@
+@import "../../assets/styles/styles.scss";
+.task-details-page {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid $mid-gray;
+  border-radius: 8px;
+  background-color: $white;
+  .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: $color-primary;
+  }
+}

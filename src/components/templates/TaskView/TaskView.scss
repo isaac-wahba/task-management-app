@@ -1,12 +1,5 @@
 @import "../../../assets/styles/styles.scss";
 .task-view {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid $mid-gray;
-  border-radius: 8px;
-  background-color: $white;
-
   .status-container {
     display: flex;
     align-items: center;

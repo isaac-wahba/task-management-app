@@ -43,6 +43,14 @@ const tasksSlice = createSlice({
     ) => {
       state.filter = action.payload;
     },
+    updateTask: (state, action: PayloadAction<Task>) => {
+      const index = state.tasks.findIndex(
+        (task) => task.id === action.payload.id
+      );
+      if (index !== -1) {
+        state.tasks[index] = action.payload;
+      }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchInitialTasks.pending, (state) => {
@@ -55,7 +63,7 @@ const tasksSlice = createSlice({
   },
 });
 
-export const { addTask, toggleTaskStatus, deleteTask, setFilter } =
+export const { addTask, toggleTaskStatus, deleteTask, setFilter, updateTask } =
   tasksSlice.actions;
 
 export const selectTasks = (state: RootState) => {

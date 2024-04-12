@@ -9,4 +9,6 @@ export const COLORS = {
   DARK: "#343a40",
   PRIMARY_DARKER: "#007bff",
   DANGER_DARKER: "#c51f32",
+  LIGHT_GRAY: "#ddd",
+  MID_GRAY: "#c0c0c0",
 };

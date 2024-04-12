@@ -1,0 +1,13 @@
+@import "../../../assets/styles/styles.scss";
+@import "../../../assets/styles/styles.scss";
+.textarea {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: $color-primary;
+}

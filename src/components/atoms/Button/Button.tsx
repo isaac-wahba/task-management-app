@@ -5,6 +5,7 @@ interface ButtonProps {
   primaryColor?: string;
   hoverColor?: string;
   children: React.ReactNode;
+  additionalStyles?: React.CSSProperties;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -12,6 +13,7 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   primaryColor,
   hoverColor,
+  additionalStyles,
 }) => {
   return (
     <button
@@ -19,6 +21,7 @@ const Button: React.FC<ButtonProps> = ({
       onClick={onClick}
       style={
         {
+          ...additionalStyles,
           "--primary-color": primaryColor,
           "--hover-color": hoverColor,
         } as React.CSSProperties
