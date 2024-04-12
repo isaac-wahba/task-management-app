@@ -5,7 +5,6 @@ import TasksPage from "../../pages/TasksPage/TasksPage";
 import { Provider } from "react-redux";
 import { store } from "../../store/store";
 import { fetchInitialTasks } from "../../services/api";
-import { useEffect } from "react";
 
 const App: React.FC = () => {
   store.dispatch(fetchInitialTasks());
