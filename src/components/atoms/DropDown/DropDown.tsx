@@ -1,13 +1,12 @@
 import Select from "react-select";
 import { ReactNode } from "react";
 import "./DropDown.scss";
-type Option = { value: string; label: ReactNode };
+export type DropDownOption = { value: string; label: ReactNode };
 
 interface DropDownProps {
-  selectedOption: Option;
-  onSelect: (option: Option) => void;
-
-  options: Option[];
+  selectedOption: DropDownOption;
+  onSelect: (option: DropDownOption) => void;
+  options: DropDownOption[];
 }
 
 const DropDown: React.FC<DropDownProps> = ({

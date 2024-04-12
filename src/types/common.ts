@@ -12,3 +12,8 @@ export interface Option {
   label: ReactNode;
   value: TASK_STATUS;
 }
+
+export interface EditStatusOption {
+  label: ReactNode;
+  value: TASK_STATUS.COMPLETED | TASK_STATUS.PENDING;
+}

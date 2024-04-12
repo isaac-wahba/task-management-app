@@ -32,14 +32,18 @@ const TaskDetailsPage: React.FC = () => {
       <div className="task-details-page">
         <div className="page-header">
           <h2>Task Details</h2>
-          <img
-            src={EditIcon}
-            alt="Edit"
-            className="edit-icon"
-            onClick={() => setIsEditMode(true)}
-            width={30}
-            height={30}
-          />
+          {!isEditMode && (
+            <img
+              src={EditIcon}
+              alt="Edit"
+              className="edit-icon"
+              onClick={() => setIsEditMode(true)}
+              width={30}
+              height={30}
+              style={{ cursor: "pointer" }}
+              title="Edit Task"
+            />
+          )}
         </div>
         {task && (
           <>

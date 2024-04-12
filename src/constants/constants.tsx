@@ -1,6 +1,6 @@
 import { COLORS } from "../assets/styles/colors";
 import { TASK_STATUS, TASK_STATUS_LABEL } from "../enums/common";
-import { Option, Task } from "../types/common";
+import { EditStatusOption, Option, Task } from "../types/common";
 
 export const filterOptions: Option[] = [
   {
@@ -15,6 +15,33 @@ export const filterOptions: Option[] = [
       </div>
     ),
   },
+  {
+    value: TASK_STATUS.PENDING,
+    label: (
+      <div className="option-content">
+        <div
+          className="color-circle"
+          style={{ backgroundColor: COLORS.WARNING, marginRight: "5px" }}
+        ></div>
+        <span>{TASK_STATUS_LABEL.PENDING}</span>
+      </div>
+    ),
+  },
+  {
+    value: TASK_STATUS.COMPLETED,
+    label: (
+      <div className="option-content">
+        <div
+          className="color-circle"
+          style={{ backgroundColor: COLORS.SUCCESS, marginRight: "5px" }}
+        ></div>
+        <span>{TASK_STATUS_LABEL.COMPLETED}</span>
+      </div>
+    ),
+  },
+];
+
+export const editStatusOptions: EditStatusOption[] = [
   {
     value: TASK_STATUS.PENDING,
     label: (

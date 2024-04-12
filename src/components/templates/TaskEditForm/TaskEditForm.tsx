@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { Task } from "../../../types/common";
+import { EditStatusOption, Option, Task } from "../../../types/common";
 import Input from "../../atoms/Input/Input";
 import Button from "../../atoms/Button/Button";
 import { COLORS } from "../../../assets/styles/colors";
 import "./TaskEditForm.scss";
 import TextArea from "../../atoms/TextArea/TextArea";
+import { TASK_STATUS } from "../../../enums/common";
+import DropDown, { DropDownOption } from "../../atoms/DropDown/DropDown";
+import { editStatusOptions } from "../../../constants/constants";
 
 interface TaskEditFormProps {
   task: Task;
@@ -18,7 +21,11 @@ const TaskEditForm: React.FC<TaskEditFormProps> = ({
   onSave,
 }) => {
   const [editedTask, setEditedTask] = useState<Task>(task);
-
+  const [selectedStatus, setSelectedStatus] = useState<DropDownOption>(
+    editStatusOptions.find(
+      (option: Option) => option.value === task.status
+    ) as EditStatusOption
+  );
   return (
     <div className="task-edit-form">
       <div className="form-group">
@@ -32,6 +39,22 @@ const TaskEditForm: React.FC<TaskEditFormProps> = ({
             })
           }
           placeholder="Title"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="details">Status</label>
+        <DropDown
+          options={editStatusOptions}
+          selectedOption={selectedStatus}
+          onSelect={(option: DropDownOption) => {
+            setSelectedStatus(option);
+            setEditedTask({
+              ...editedTask,
+              status: option.value as
+                | TASK_STATUS.PENDING
+                | TASK_STATUS.COMPLETED,
+            });
+          }}
         />
       </div>
       <div className="form-group">
