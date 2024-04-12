@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  selectFilter,
   selectLoading,
   selectTasks,
   setFilter,
@@ -11,26 +12,26 @@ import { createSelector } from "@reduxjs/toolkit";
 
 // Memoized selector for retrieving tasks and loading
 const selectTasksAndLoading = createSelector(
-  [selectTasks, selectLoading],
-  (tasks, loading) => ({
+  [selectTasks, selectLoading, selectFilter],
+  (tasks, loading, filter: TASK_STATUS) => ({
     tasks,
     loading,
+    filter,
   })
 );
 
 const useTaskFilter = () => {
   const dispatch = useDispatch();
 
-  const { tasks, loading } = useSelector(selectTasksAndLoading);
+  const { tasks, loading, filter } = useSelector(selectTasksAndLoading);
 
-  const [filter, setFilterState] = useState<TASK_STATUS>(TASK_STATUS.ALL);
-  console.log(filter);
+  const [updatedFilter, setFilterState] = useState<TASK_STATUS>(filter);
   const filteredTasks = useMemo(() => {
-    if (filter === TASK_STATUS.ALL) {
+    if (updatedFilter === TASK_STATUS.ALL) {
       return tasks;
     }
-    return tasks.filter((task: Task) => task.status === filter);
-  }, [tasks, filter]);
+    return tasks.filter((task: Task) => task.status === updatedFilter);
+  }, [tasks, updatedFilter]);
 
   const handleSetFilter = (selectedFilter: TASK_STATUS) => {
     setFilterState(selectedFilter);
@@ -39,7 +40,7 @@ const useTaskFilter = () => {
 
   return {
     tasks: filteredTasks,
-    filter,
+    filter: updatedFilter,
     setFilter: handleSetFilter,
     loading,
   };

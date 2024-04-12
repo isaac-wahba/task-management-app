@@ -71,4 +71,6 @@ export const selectLoading = (state: RootState) => state.tasks.loading;
 export const selectTaskById = (state: RootState, taskId: string) =>
   state.tasks.tasks.find((task) => task.id === taskId);
 
+export const selectFilter = (state: RootState) => state.tasks.filter;
+
 export default tasksSlice.reducer;
