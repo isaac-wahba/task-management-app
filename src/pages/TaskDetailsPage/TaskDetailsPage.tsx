@@ -9,6 +9,7 @@ import { useState } from "react";
 import "./TaskDetailsPage.scss";
 import EditIcon from "../../assets/icons/Edit.svg";
 import { Task } from "../../types/common";
+import NoDataView from "../../components/templates/NoDataView/NoDataView";
 const TaskDetailsPage: React.FC = () => {
   const { taskId } = useParams<{ taskId: string }>();
   const dispatch = useDispatch();
@@ -58,6 +59,7 @@ const TaskDetailsPage: React.FC = () => {
             )}
           </>
         )}
+        {!task && <NoDataView message="Task not found" />}
       </div>
     </MainLayout>
   );

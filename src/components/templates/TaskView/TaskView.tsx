@@ -1,7 +1,6 @@
 import "./TaskView.scss";
 import { Task } from "../../../types/common";
 import { Link } from "react-router-dom";
-import NoDataView from "../NoDataView/NoDataView";
 import StatusIndicator from "../../atoms/StatusIndicator/StatusIndicator";
 import { capitalizeFirstLetter } from "../../../utils/stringUtils";
 
@@ -13,7 +12,7 @@ const TaskView: React.FC<TaskDetailsPageProps> = ({ task }) => {
   return (
     <>
       <div className="task-view">
-        {task ? (
+        {task && (
           <div className="task-details">
             <div>
               <strong>Title:</strong> {task.title}
@@ -28,8 +27,6 @@ const TaskView: React.FC<TaskDetailsPageProps> = ({ task }) => {
               <strong>Description:</strong> {task.details}
             </div>
           </div>
-        ) : (
-          <NoDataView message="Task not found" />
         )}
       </div>
       <div className="back-to-list">
