@@ -1,5 +1,11 @@
 # Basic Task Management App
 
+## Project Deployment
+
+The project is deployed and can be accessed [here](https://basictasksmanagement.netlify.app).
+
+## Tech tools
+
 This project is a task management application built using the following technologies:
 
 - `React`
