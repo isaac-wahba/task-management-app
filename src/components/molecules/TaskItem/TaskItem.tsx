@@ -1,11 +1,11 @@
 import "./TaskItem.scss";
-import StatusIndicator from "../StatusIndicator/StatusIndicator";
+import StatusIndicator from "../../atoms/StatusIndicator/StatusIndicator";
 import { Task } from "../../../types/common";
 import { useConfirmationModal } from "../../../hooks/useConfirmationModal";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
-import MarkStatusAction from "../MarkStatusAction/MarkStatusAction";
-import DeleteTaskAction from "../DeleteTaskAction/DeleteTaskAction";
-import ViewTaskDetailsAction from "../ViewTaskDetailsAction/ViewTaskDetailsAction";
+import MarkStatusAction from "../../atoms/MarkStatusAction/MarkStatusAction";
+import DeleteTaskAction from "../../atoms/DeleteTaskAction/DeleteTaskAction";
+import ViewTaskDetailsAction from "../../atoms/ViewTaskDetailsAction/ViewTaskDetailsAction";
 import { capitalizeFirstLetter } from "../../../utils/stringUtils";
 
 interface TaskItemProps {
