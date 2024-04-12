@@ -2,7 +2,7 @@
 
 ## Project Deployment
 
-The project is deployed and can be accessed [here](basictasksmanagement.netlify.app).
+The project is deployed and can be accessed [here](https://basictasksmanagement.netlify.app).
 
 ## Tech tools
 
