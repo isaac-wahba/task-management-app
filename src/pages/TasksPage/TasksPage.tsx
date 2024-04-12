@@ -1,5 +1,5 @@
 import MainLayout from "../../components/Layouts/MainLayout/MainLayout";
-import TaskList from "../../components/molecules/TaskList/TaskList";
+import TaskList from "../../components/organisms/TaskList/TaskList";
 import TaskForm from "../../components/organisms/TaskForm/TaskForm";
 import useTaskFilter from "../../hooks/useTaskFilter";
 import Filter from "../../components/organisms/Filter/Filter";

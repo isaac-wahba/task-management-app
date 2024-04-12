@@ -1,5 +1,5 @@
 import "./TaskList.scss";
-import TaskItem from "../../atoms/TaskItem/TaskItem";
+import TaskItem from "../../molecules/TaskItem/TaskItem";
 import { Task } from "../../../types/common";
 
 interface TaskListProps {
