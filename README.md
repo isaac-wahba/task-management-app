@@ -20,6 +20,7 @@ This project is a task management application built using the following technolo
 
 
 - **Atomic Pattern**: Utilizes the atomic design pattern for component structure, dividing components into `atoms`, `molecules`, `organisms`, `templates`, and `pages` for better scalability and reusability.
+- The **App** Component is placed under `containers` folders so that in the future we can add **Authenticaion** container on the same level.
 
 ## How to run the project in the development mode
 
